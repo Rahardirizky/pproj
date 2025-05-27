@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Landing Page Kucing</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      text-align: center;
+      padding: 2em;
+      background: #fefefe;
+    }
+    img {
+      width: 300px;
+      border-radius: 1em;
+    }
+    h1 {
+      margin: 1em 0;
+    }
+    .buttons {
+      margin-top: 1.5em;
+    }
+    button {
+      padding: 1em 2em;
+      font-size: 1.2em;
+      margin: 0.5em;
+      border: none;
+      border-radius: 0.5em;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    #noButton {
+      position: absolute;
+    }
+  </style>
+</head>
+<body>
+  <h1>Main yuk 🐱</h1>
+  <img src="https://placekitten.com/400/300" alt="kucing lucu" />
+  <div class="buttons">
+    <button onclick="alert('Yay! 😸')">Yuk</button>
+    <button id="noButton">Gak</button>
+  </div>
+
+  <script>
+    const noBtn = document.getElementById("noButton");
+
+    function moveButton() {
+      const maxX = window.innerWidth - noBtn.offsetWidth;
+      const maxY = window.innerHeight - noBtn.offsetHeight;
+      const x = Math.random() * maxX;
+      const y = Math.random() * maxY;
+      noBtn.style.left = `${x}px`;
+      noBtn.style.top = `${y}px`;
+    }
+
+    // Untuk desktop (mouse)
+    noBtn.addEventListener("mouseenter", moveButton);
+
+    // Untuk mobile (sentuh)
+    noBtn.addEventListener("touchstart", function(e) {
+      e.preventDefault(); // mencegah klik
+      moveButton();
+    });
+  </script>
+</body>
+</html>
