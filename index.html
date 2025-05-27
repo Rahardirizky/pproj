@@ -3,24 +3,25 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Main Sama Felia</title>
+  <title>Main Yuk</title>
   <style>
     body {
       font-family: sans-serif;
       text-align: center;
       padding: 2em;
-      background: #5a1748;
+      background: #1b729b;
+      overflow-x: hidden;
     }
-    img {
-      width: 300px;
-      border-radius: 1em;
-    }
+
     h1 {
       margin: 1em 0;
+      font-size: 2em;
     }
+
     .buttons {
-      margin-top: 1.5em;
+      margin-top: 2em;
     }
+
     button {
       padding: 1em 2em;
       font-size: 1.2em;
@@ -30,18 +31,29 @@
       cursor: pointer;
       transition: all 0.2s ease;
     }
+
     #noButton {
       position: absolute;
+    }
+
+    .kucing-pojok {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 180px;
     }
   </style>
 </head>
 <body>
   <h1>Main yuk 🐱</h1>
-  <img src="kucing1.png" alt="kucing lucu" />
+
   <div class="buttons">
     <button onclick="alert('Yay! 😸')">Yuk</button>
     <button id="noButton">Gak</button>
   </div>
+
+  <!-- Gambar kucing di pojok kiri bawah -->
+  <img src="kucing2.png" alt="kucing lucu" class="kucing-pojok" />
 
   <script>
     const noBtn = document.getElementById("noButton");
@@ -55,10 +67,10 @@
       noBtn.style.top = `${y}px`;
     }
 
-    // Untuk desktop (mouse)
+    // Untuk desktop
     noBtn.addEventListener("mouseenter", moveButton);
 
-    // Untuk mobile (sentuh)
+    // Untuk mobile
     noBtn.addEventListener("touchstart", function(e) {
       e.preventDefault(); // mencegah klik
       moveButton();
