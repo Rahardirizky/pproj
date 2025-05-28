@@ -3,19 +3,24 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Main Yuk</title>
+  <title>Main Sama Felia</title>
   <style>
     body {
       font-family: sans-serif;
+      background: #1b729b;
+      margin: 0;
+      padding: 0;
+    }
+
+    .centered {
       text-align: center;
       padding: 2em;
-      background: #1b729b;
-      overflow-x: hidden;
     }
 
     h1 {
-      margin: 1em 0;
       font-size: 2em;
+      margin: 1em 0;
+      color: white;
     }
 
     .buttons {
@@ -41,19 +46,44 @@
       bottom: 0;
       left: 0;
       width: 180px;
+      z-index: 10;
+    }
+
+    #comicSection {
+      display: none;
+      background: white;
+      padding: 1em;
+      text-align: center;
+    }
+
+    #comicSection img {
+      width: 100%;
+      max-width: 600px;
+      margin: 1em 0;
+      border-radius: 1em;
     }
   </style>
 </head>
 <body>
-  <h1>Main yuk 🐱</h1>
+  <!-- Halaman utama -->
+  <div id="mainSection" class="centered">
+    <h1>Main yuk 🐱</h1>
 
-  <div class="buttons">
-    <button onclick="alert('Yay! 😸')">Yuk</button>
-    <button id="noButton">Gak</button>
+    <div class="buttons">
+      <button onclick="showComic()">Yuk</button>
+      <button id="noButton">Gak</button>
+    </div>
+
+    <img src="kucing2.png" alt="kucing lucu" class="kucing-pojok" />
   </div>
 
-  <!-- Gambar kucing di pojok kiri bawah -->
-  <img src="kucing2.png" alt="kucing lucu" class="kucing-pojok" />
+  <!-- Halaman komik -->
+  <div id="comicSection">
+    <img src="aktf1.jpeg" alt="Panel 1 - Jogging pagi bareng">
+    <img src="aktf4.jpeg" alt="Panel 2 - Makan siang & bioskop">
+    <img src="aktf2.jpeg" alt="Panel 3 - Mall & makan malam">
+    <img src="aktf3.jpeg" alt="Panel 3 - Mall & makan malam">
+  </div>
 
   <script>
     const noBtn = document.getElementById("noButton");
@@ -72,9 +102,15 @@
 
     // Untuk mobile
     noBtn.addEventListener("touchstart", function(e) {
-      e.preventDefault(); // mencegah klik
+      e.preventDefault();
       moveButton();
     });
+
+    function showComic() {
+      document.getElementById("mainSection").style.display = "none";
+      document.getElementById("comicSection").style.display = "block";
+      window.scrollTo(0, 0);
+    }
   </script>
 </body>
 </html>
